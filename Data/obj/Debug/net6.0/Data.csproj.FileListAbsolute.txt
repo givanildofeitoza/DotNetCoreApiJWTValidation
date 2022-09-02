@@ -1,0 +1,17 @@
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.csproj.AssemblyReference.cache
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
+C:\givanildo\DEV\ApiControleContas\Data\bin\Debug\net6.0\Data.deps.json
+C:\givanildo\DEV\ApiControleContas\Data\bin\Debug\net6.0\Data.dll
+C:\givanildo\DEV\ApiControleContas\Data\bin\Debug\net6.0\Data.pdb
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.dll
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\refint\Data.dll
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.pdb
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\ref\Data.dll
+C:\givanildo\DEV\ApiControleContas\Data\bin\Debug\net6.0\Business.dll
+C:\givanildo\DEV\ApiControleContas\Data\bin\Debug\net6.0\Business.pdb
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.csproj.CopyComplete
+C:\givanildo\DEV\ApiControleContas\Data\bin\Debug\net6.0\Data.runtimeconfig.json
+C:\givanildo\DEV\ApiControleContas\Data\obj\Debug\net6.0\Data.genruntimeconfig.cache

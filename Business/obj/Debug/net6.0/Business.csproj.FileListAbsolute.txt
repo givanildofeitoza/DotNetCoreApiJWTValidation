@@ -1,0 +1,14 @@
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.csproj.AssemblyReference.cache
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.AssemblyInfoInputs.cache
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.AssemblyInfo.cs
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.csproj.CoreCompileInputs.cache
+C:\givanildo\DEV\ApiControleContas\Business\bin\Debug\net6.0\Business.deps.json
+C:\givanildo\DEV\ApiControleContas\Business\bin\Debug\net6.0\Business.dll
+C:\givanildo\DEV\ApiControleContas\Business\bin\Debug\net6.0\Business.pdb
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.dll
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\refint\Business.dll
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.pdb
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\ref\Business.dll
+C:\givanildo\DEV\ApiControleContas\Business\bin\Debug\net6.0\Business.runtimeconfig.json
+C:\givanildo\DEV\ApiControleContas\Business\obj\Debug\net6.0\Business.genruntimeconfig.cache
