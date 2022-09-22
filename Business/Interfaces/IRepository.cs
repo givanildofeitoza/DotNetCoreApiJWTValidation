@@ -13,7 +13,7 @@ namespace Business.Interfaces
         public void Post(TEntity ObjectValue);
         public void Put(TEntity ObjectValue);
         public void DeleteById(int Id);
-        public TEntity GetById(int Id);
+        public TEntity GetById(int Id);     
         public IEnumerable<TEntity> GetValuesList();
 
     }

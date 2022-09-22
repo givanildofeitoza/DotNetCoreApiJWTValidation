@@ -1,12 +1,16 @@
 ﻿using Api.DTO;
 using Api.Extensions;
 using Api.V1.Controllers;
+using AutoMapper;
+using Business.Interfaces;
+using Business.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Api.V1
@@ -20,20 +24,26 @@ namespace Api.V1
         private readonly UserManager<IdentityUser> _UserManager;
         private readonly SignInManager<IdentityUser> _SignInManager;
         private readonly AppSetingsJWT _appSettings;
+        private readonly ICustomerService _CustomerService;
+        private readonly IMapper _mapper;
 
         public SecurityController(SignInManager<IdentityUser> SignInManager,
                                                 UserManager<IdentityUser> UserManager,
-                                                IOptions<AppSetingsJWT> appSettings)
+                                                IOptions<AppSetingsJWT> appSettings,
+                                                ICustomerService CustomerService,
+                                                IMapper mapper)
         {
             _UserManager = UserManager;
             _SignInManager = SignInManager;
             _appSettings = appSettings.Value;
+            _CustomerService = CustomerService;
+            _mapper = mapper;
 
         }
 
 
         [HttpPost("Register-NewUser")]
-        public async Task<ActionResult<DtoRegister>> RegisterUser([FromBody] DtoRegister NewUserModel)
+        public async Task<ActionResult<DtoRegister>> RegisterUser([FromBody] DtoCustomer NewUserModel)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
@@ -47,6 +57,9 @@ namespace Api.V1
 
             if (result.Succeeded)
             {
+                await _CustomerService.PostCustomer(_mapper.Map<Customer>(NewUserModel));
+              
+
                 return Ok();
             }
             else
@@ -70,9 +83,14 @@ namespace Api.V1
 
             if (result.Succeeded)
             {
-                UserLogin.StatusRegistro = "user logged successful!";
-                UserLogin.TokenJWT = await GerarJwt(UserLogin.Email);
-                return Ok(UserLogin);
+
+                DtoCustomer AccountValues = await GetUserByEmail(UserLogin.Email);
+
+                AccountValues.StatusRegistro = "user logged successful!";
+               // UserLogin.TokenJWT = await GerarJwt(UserLogin.Email);
+                AccountValues.TokenJWT = await GerarJwt(UserLogin.Email);
+
+                return Ok(AccountValues);
             }
             else
             {
@@ -82,7 +100,12 @@ namespace Api.V1
 
             return Ok();
         }
-
+        private async Task<DtoCustomer> GetUserByEmail(string Email)
+        {           
+                var usuario = _mapper.Map<DtoCustomer>( await _CustomerService.GetByEmailCustomer(Email));               
+                return usuario;  
+            
+        }
 
         private async Task<string> GerarJwt(string email)
         {

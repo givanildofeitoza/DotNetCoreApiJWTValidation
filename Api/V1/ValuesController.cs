@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.Text;
 
 namespace Api.V1
 {
@@ -30,16 +32,16 @@ namespace Api.V1
         }
         [HttpGet("Get-Value-id/{Id}")]
         public async Task<ActionResult<DtoInputRelations>> GetById(int Id)
-        {
-           
+        {           
             var value = _mapper.Map<DtoInputRelations>(await _InputRelationsService.GetValueById(Id));
             return Ok(value);
+
         }
         [HttpPost("New-Value")]
         public async Task<ActionResult> PostValue([FromBody] DtoInputRelations NewValue)
         {
             if (!ModelState.IsValid) { return BadRequest(); }
-
+                        
             _InputRelationsService.PostValue(_mapper.Map<InputRelations>(NewValue));
 
             return Ok();
@@ -53,18 +55,21 @@ namespace Api.V1
 
             return Ok();
         }
-        [HttpPut("Delete-Value-id/{Id}")]
+        [HttpDelete("Delete-Value-id/{Id}")]
         public async Task<ActionResult> DeleteById(int Id)
         {
             await _InputRelationsService.DeleteValueById(Id);
             return Ok();
         }
 
-        [HttpGet("Get-ValuesAll/")]
-        public async Task<ActionResult<IEnumerable<InputRelations>>> GetValuesAll()
+        [HttpGet("Get-ValuesAll/{Id}")]
+        public async Task<ActionResult<IEnumerable<InputRelations>>> GetValuesAll(int id)
         {
            var AllValues = _mapper.Map<IEnumerable<DtoInputRelations>>( await _InputRelationsService.GetValuesAll());
-            return Ok(AllValues);
+           var ReturnByID = AllValues.Where(x => x.IdCustomer == id).ToList();
+
+
+            return Ok(ReturnByID);
         }
     }
 }

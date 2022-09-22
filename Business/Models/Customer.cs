@@ -10,8 +10,9 @@ namespace Business.Models
 {
     public class Customer : Entity
     {
+
         [Key]
-        public int Id { get; set; }       
+        public int Id { get; set; }      
         public string Name { get; set; }   
         public string Account { get; set; }      
         public string Email { get; set; }
@@ -19,7 +20,7 @@ namespace Business.Models
         public string Adderss { get; set; }
         public string City { get; set; }
         public string Image { get; set; }
-        public UFValue Uf { get; set; }
+        public string Uf { get; set; }
         public string Country { get; set; }
 
         //EF

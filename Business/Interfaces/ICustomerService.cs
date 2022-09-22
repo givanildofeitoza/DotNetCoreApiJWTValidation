@@ -11,10 +11,11 @@ namespace Business.Interfaces
     public interface ICustomerService
     {
 
-        public void PostCustomer();
-        public void PutCustomer();
-        public void DeleteCustomer();
-        public Entity GetCustomer();
+        Task PostCustomer(Customer ObjCostumer);
+        Task PutCustomer(Customer ObjCostumer);
+        Task DeleteCustomer(int Id);
+        Task<Customer> GetByEmailCustomer(string Email);
+        public Customer GetCustomer();
 
 
     }
