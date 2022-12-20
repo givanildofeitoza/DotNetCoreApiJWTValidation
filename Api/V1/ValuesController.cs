@@ -1,4 +1,5 @@
 ﻿using Api.DTO;
+using Api.Extensions;
 using Api.V1.Controllers;
 using AutoMapper;
 using Business.Interfaces;
@@ -21,8 +22,8 @@ namespace Api.V1
     {
         protected readonly IInputRelationsService _InputRelationsService;
         private readonly IMapper _mapper;
-    
 
+       
         public ValuesController(IInputRelationsService InputRelationsService, 
                                 IMapper mapper) 
         {
@@ -30,6 +31,7 @@ namespace Api.V1
             _mapper = mapper;    
 
         }
+       
         [HttpGet("Get-Value-id/{Id}")]
         public async Task<ActionResult<DtoInputRelations>> GetById(int Id)
         {           
@@ -61,7 +63,7 @@ namespace Api.V1
             await _InputRelationsService.DeleteValueById(Id);
             return Ok();
         }
-
+        [AutorizacaoClaim("contas", "obtertodos")]
         [HttpGet("Get-ValuesAll/{Id}")]
         public async Task<ActionResult<IEnumerable<InputRelations>>> GetValuesAll(int id)
         {

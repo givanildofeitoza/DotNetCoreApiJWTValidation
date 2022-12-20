@@ -17,8 +17,8 @@ namespace Api.Config
             services.AddScoped<DbContext,appDbContext>();
 
             services.AddScoped<IInputRelationsService, InputRelationsRepository>();
-            services.AddScoped<ICustomerService, CustomerRepository>();
-
+            services.AddScoped<ICustomerService, CustomerRepository>();            
+           
 
             services.AddApiVersioning (options =>
             {
